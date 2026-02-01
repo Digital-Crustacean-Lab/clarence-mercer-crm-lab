@@ -51,7 +51,7 @@ Uncovering the rules is only half the battle. As a Data Strategy Analyst, I focu
 
 We have reached the end of our Retail CRM journey. We have transformed raw, messy transactional data into a strategic roadmap for growth. We know who our best customers are (RFM), we know who is about to leave (Churn), and we know exactly what to offer them next (Market Basket).
 
-Data science is not about replacing human intuition; it is about providing a high-definition lens for it. When you combine technical precision with strategic insight, you don't just run a business—您是在指揮一場數據的交響樂。
+Data science is not about replacing human intuition; it is about providing a high-definition lens for it. When you combine technical precision with strategic insight, you don't just run a business—you conduct a symphony of data.
 
 I am Clarence R. Mercer. The table is set, and the insights are served. 
 
