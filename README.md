@@ -30,3 +30,5 @@ Predicting term deposit subscriptions using imbalanced data techniques.
 
 ---
 *“Data is the compass, strategy is the rudder.”* — **Clarence R. Mercer**
+
+### 🏅 Achievement Unlocked: Towards AI Contributor (Feb 2026)
