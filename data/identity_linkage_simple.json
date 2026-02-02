@@ -1,0 +1,16 @@
+[
+    {
+        "master_id": 1,
+        "source_id": 101,
+        "master_name": "John Smith",
+        "source_name": "Jon Smith",
+        "confidence": 98.0
+    },
+    {
+        "master_id": 3,
+        "source_id": 103,
+        "master_name": "Robert Mercer",
+        "source_name": "Bob Mercer",
+        "confidence": 80.8
+    }
+]

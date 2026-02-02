@@ -1,0 +1,11 @@
+[
+    {
+        "crm_id": "EXT-100",
+        "status": "High Priority",
+        "source": "Alexa",
+        "intent_note": "I need to buy more premium ground coffee by tomorrow",
+        "suggested_product": "Coffee",
+        "score": 0.9999999999999999,
+        "action_required": "Immediate Follow-up"
+    }
+]
