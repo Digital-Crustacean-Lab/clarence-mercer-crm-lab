@@ -88,5 +88,9 @@ The customer does not begin their journey on your landing page; they begin it in
 - **Online Retail (UCI)**: CLV Model Validation (400k+ records). [UCI Source](https://archive.ics.uci.edu/ml/datasets/Online+Retail)
 - **Methodology**: Fader, B. S., & Hardie, B. G. (2005). "Counting Your Customers" the Easy Way: An Alternative to the Pareto/NBD Model. *Marketing Science*.
 
+### 💻 Live Technical Implementation
+For the complete Python source code and reproducible environment used in this series, visit our **Interactive Kaggle Notebook**:
+👉 [Advanced CRM: Intent, Anomaly & Attribution](https://www.kaggle.com/code/speckhung/advanced-crm-intent-anomaly-attribution)
+
 ---
 *Clarence R. Mercer is a Data Strategy Analyst at Digital Crustacean Lab.*

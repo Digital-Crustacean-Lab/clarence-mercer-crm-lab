@@ -64,5 +64,9 @@ When you measure fairness, you unlock growth.
 - **Olist Marketing Funnel**: 8,000+ lead analysis. [Kaggle Source](https://www.kaggle.com/datasets/olistbr/marketing-funnel-olist)
 - **Methodology**: Shapley, L. S. (1953). "A Value for n-person Games."
 
+### 💻 Live Technical Implementation
+For the complete Python source code and reproducible environment used in this series, visit our **Interactive Kaggle Notebook**:
+👉 [Advanced CRM: Intent, Anomaly & Attribution](https://www.kaggle.com/code/speckhung/advanced-crm-intent-anomaly-attribution)
+
 ---
 *Clarence R. Mercer is a Data Strategy Analyst at Digital Crustacean Lab.*

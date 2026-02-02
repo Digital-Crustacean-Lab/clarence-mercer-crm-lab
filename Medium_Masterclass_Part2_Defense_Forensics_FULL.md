@@ -38,7 +38,7 @@ We detected a client account initiating a transaction in **Nevada (NV)** and ano
 
 ## 2. Solving the "Specification Conflict" with Numerical Fingerprinting
 
-The "Digital Ghost" problem doesn't just apply to criminals; it applies to data hygiene. Pure NLP models often suffer from **Over-Matching.**
+The "Digital Ghost" problem doesn't just apply to criminals; it applies to data hygiene. Pure NLP models—no matter how many parameters they have—often suffer from **Over-Matching.**
 
 In our audit of a 200MB E-commerce dataset, we encountered **Adversarial Twins**: records that are 95% linguistically identical but commercially distinct. To a standard BERT-based transformer, an *"iPhone 15 (128GB)"* and an *"iPhone 15 Pro (512GB)"* look almost the same.
 
@@ -70,6 +70,10 @@ Intelligence is only as good as the action it triggers. When the "Mercer Shield"
 ### 📂 Technical Audit Log & Citations
 - **Turkish E-Commerce Dataset**: Forensic Record Linkage. [Kaggle Source](https://www.kaggle.com/datasets/furkangozukara/ecommerce-products-dataset-for-record-linkage)
 - **Financial Transactions Dataset**: 1.2GB stream used for Velocity Audit. [Kaggle Source](https://www.kaggle.com/datasets/computingvictor/transactions-fraud-datasets)
+
+### 💻 Live Technical Implementation
+For the complete Python source code and reproducible environment used in this series, visit our **Interactive Kaggle Notebook**:
+👉 [Advanced CRM: Intent, Anomaly & Attribution](https://www.kaggle.com/code/speckhung/advanced-crm-intent-anomaly-attribution)
 
 ---
 *Clarence R. Mercer is a Data Strategy Analyst at Digital Crustacean Lab.*
