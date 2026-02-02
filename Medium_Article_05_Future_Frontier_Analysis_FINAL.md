@@ -20,6 +20,25 @@ Our early experiments (V1) relied on standard keyword heuristic models. While ef
 
 In Phase 3, we implemented our **Sentiment + Negation Aware NLP Engine (V2)**. Utilizing VADER-based sentiment weighting and advanced negation-window detection, we audited 3,150 real-world Amazon Alexa records. 
 
+```python
+# Technical Snippet: Mercer Intent Scoring Logic (V2)
+def calculate_mercer_intent(text, analyzer):
+    vs = analyzer.polarity_scores(text)
+    sentiment = vs['compound'] # Sentiment intensity (-1 to 1)
+    
+    # Negation Window Detection
+    negations = ['not', 'never', 'didnt', 'returned']
+    has_negation = any(neg in text.lower() for neg in negations)
+    
+    # Intent Weighting: 
+    # High Sentiment + Transactional Keywords - Negation Penalty
+    score = 0.5 if "purchase" in text.lower() else 0.0
+    score += (sentiment * 0.5)
+    if has_negation: score -= 0.6 # The "Mercer Rectification"
+    
+    return max(0, score)
+```
+
 **The Technical Breakthrough:**
 We successfully reduced marketing noise by **24.2%** compared to the keyword baseline. More importantly, we discovered a vital strategic nuance: **Intent carries more weight than Sentiment.** 
 
@@ -36,10 +55,22 @@ Pure semantic AI often suffers from "Over-Matching." During our 200MB E-commerce
 
 Consider the challenge of distinguishing an **iPhone 15** from an **iPhone 15 Pro**. To a standard NLP model, these titles share 90% of their tokens. To a business, the difference is several hundred dollars in margin and a completely different supply chain requirement.
 
-To solve this, we developed **Numerical Fingerprinting**. This secondary audit layer acts as a "digital forensic" step, using Regex-driven extraction to isolate and compare numeric sequences (model numbers, storage capacities, platform IDs). 
+```python
+# Technical Snippet: Numerical Fingerprinting (Forensic Step)
+def apply_numeric_fingerprint(title_a, title_b, base_sim):
+    # Extract digit sequences (Model IDs, Storage, etc.)
+    nums_a = set(re.findall(r'\d+', title_a))
+    nums_b = set(re.findall(r'\d+', title_b))
+    
+    # Check for fingerprint mismatch
+    if nums_a != nums_b:
+        # Penalize confidence for specific spec conflicts
+        return max(0, base_sim - 0.5) 
+    return base_sim
+```
 
 **The Result:**
-We neutralized 100% of high-risk false positives. Confidence scores for спецификация (spec) mismatches dropped from a dangerous 0.85 to a safe 0.35, ensuring that our CRM actions are as precise as they are proactive.
+We neutralized 100% of high-risk false positives. Confidence scores for spec mismatches dropped from a dangerous 0.85 to a safe 0.35, ensuring that our CRM actions are as precise as they are proactive.
 
 ---
 
@@ -52,13 +83,29 @@ In our internal implementation, this manifests as an automated link to our **Mat
 2.  It is routed to the "Call Center Agent" channel.
 3.  A **"Claim & Lock"** mechanism ensures that the first available agent takes ownership, preventing duplicate outreach and ensuring a seamless customer experience.
 
+```json
+{
+  "event": "PROACTIVE_INTENT_DETECTED",
+  "identity": "Robert Mercer (ID: 003)",
+  "source": "Alexa_Edge_Node",
+  "intent_score": 0.92,
+  "action": "Immediate_Sales_Outreach",
+  "context": "Customer mentioned device failure; high upgrade affinity."
+}
+```
+
 ---
 
 ## Conclusion: The Mercer CRM Manifesto
 
-The customer doesn’t start their journey on your landing page; they start it in the quiet intimacy of their own thoughts. The next generation of CRM will not be a static database; it will be a ubiquitous, probabilistic engine that "hears" hunger and begins the preparation before the guest even realizes they are ready to sit down.
+The customer doesn’t start their journey on your landing page; they start it in their mind. The next generation of CRM will not be a database; it will be a ubiquitous, probabilistic engine that "hears" hunger and begins the preparation before the guest even realizes they are ready to sit down.
 
 In the Digital Crustacean Lab, we don't just record the past. We calculate the future.
+
+---
+### 📂 Research Datasets & Citations
+- **Amazon Alexa Reviews**: A collection of 3,150 customer reviews, variations, and feedback used for NLP intent benchmarking. [Source](https://www.kaggle.com/datasets/sid321axn/amazon-alexa-reviews)
+- **Turkish E-Commerce Products**: Dataset by **Gozukara & Ozel (2016)**, used for high-fidelity record linkage and identity resolution stress-testing. [Source](https://www.kaggle.com/datasets/furkangozukara/ecommerce-products-dataset-for-record-linkage)
 
 ---
 *Clarence R. Mercer is a Data Strategy Analyst at Digital Crustacean Lab, specializing in high-fidelity CRM automation and the intersection of NLP and Business Intelligence.*
