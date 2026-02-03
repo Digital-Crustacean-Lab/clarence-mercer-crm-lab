@@ -14,13 +14,13 @@ By rewarding only the final touchpoint, organizations accidentally defund the to
 
 ## 2. Methodology: The Shapley Value Implementation
 
-The **Shapley Value** is a solution concept from cooperative game theory, originally proposed by Lloyd Shapley in 1953. It determines the fairest way to distribute a "payout" (conversion credit) among players (marketing channels) based on their **Marginal Contribution**.
+The **Shapley Value** is a Nobel-prize winning solution concept from cooperative game theory, originally proposed by Lloyd Shapley in 1953. It determines the fairest way to distribute a "payout" (conversion credit) among players (marketing channels) based on their **Marginal Contribution**.
 
 ### 2.1. The Math of Fairness
 In our attribution engine, we treat every customer journey as a game. To calculate the true value of a channel (e.g., *Email*), we perform a rigorous permutation-based audit:
 1.  **Enumerate Subsets**: We look at all possible combinations of touchpoints.
 2.  **Calculate Marginal Lift**: We calculate the conversion probability of every subset *with* Email minus the probability *without* Email.
-3.  **Weighted Average**: The **Shapley Value** is the weighted average of these marginal lifts across all possible permutations.
+3.  **Weighted Average**: The **Shapley Value** is the weighted average of these marginal lifts across all possible permutations of the channel set.
 
 This method ensures that "Assisters"—channels that nurture the customer along—get the credit they mathematically deserve, allowing for a scientifically optimized budget distribution.
 
@@ -45,6 +45,7 @@ def calculate_mercer_efficiency(wins, leads, avg_cycle_days):
     conversion_rate = wins / leads if leads > 0 else 0
     
     # Mercer Efficiency Score = (P_win) / (T_cycle + 1)
+    # The '+1' prevents division by zero for instant conversions.
     # This identifies 'Hidden Gems' that close deals fast with low friction.
     efficiency = conversion_rate / (avg_cycle_days + 1)
     
@@ -57,7 +58,7 @@ By applying this $\lambda$ decay, we ensure that the system rewards "Accelerator
 
 ## 4. Case Study: Discovery of the "Hidden Gems" in Olist Data
 
-We audited the **Olist E-commerce dataset**, analyzing 8,000 multi-channel leads. The results were a strategic wake-up call for raw volume-driven marketing managers.
+We audited the **Olist E-commerce dataset**, analyzing 8,000 multi-channel leads. The results were a wake-up call for raw volume-driven marketing managers.
 
 ### 4.1. The Slow Burn vs. The Fast Cash
 Our audit revealed a distinct dichotomy in channel performance:
@@ -70,7 +71,7 @@ Our audit revealed a distinct dichotomy in channel performance:
 
 ## 5. Conclusion: Towards an Efficiency Frontier
 
-The future of CRM is not about who got the "Last Click"; it is about understanding the cooperative ecosystem of human desire. By moving from biased reporting to **Game Theory-driven Attribution**, organizations can finally stop guessing where their growth comes from and start calculating it.
+The future of CRM is not about who got the "Last Click"; it is about understanding the cooperative ecosystem of human desire. By moving from biased reporting to **Game Theory-driven Attribution**, organizations can finally stop guessing where your growth comes from and start calculating it.
 
 When you measure fairness, you unlock growth.
 
@@ -85,3 +86,5 @@ When you measure fairness, you unlock growth.
 
 ---
 *Clarence R. Mercer is a Data Strategy Analyst at Digital Crustacean Lab, specializing in high-fidelity CRM automation and the intersection of Game Theory and Business Intelligence.*
+
+**Cover Image Credit:** Created by Author using DALL-E 3.

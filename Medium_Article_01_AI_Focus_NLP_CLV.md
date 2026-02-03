@@ -1,4 +1,4 @@
-# Beyond Stars and Hearts: Leveraging Advanced NLP and Probabilistic Modeling for High-Precision Intent Classification in CRM
+# Article 1: Beyond Stars and Hearts: Leveraging Advanced NLP and Probabilistic Modeling for High-Precision Intent Classification in CRM
 **Author:** Clarence R. Mercer
 **Laboratory:** Digital Crustacean Lab
 **Publication Target:** Towards AI / Towards Data Science
@@ -10,7 +10,7 @@ In my eighteen years navigating the architectures of Retail and Quick Service Re
 
 However, a rigorous technical audit at the **Digital Crustacean Lab** has exposed a critical flaw in this conventional wisdom: **Sentiment is a lagging indicator of emotion, whereas Intent is a leading indicator of revenue.** 
 
-Traditional Sentiment Analysis often labels text as "Positive" or "Negative" without understanding the underlying commercial urgency. Through nearly two decades of system design, I've learned that a happy customer who praises your product but has no immediate need to re-purchase is what we call a "Satisfied Ghost." Conversely, an angry customer detailing a hardware failure represents a high-conversion sales opportunity. This article details our implementation of an **Applied NLP framework** that shifts the focus from emotional tone to transactional intent, bridging the gap between raw data engineering and strategic bottom lines.
+Standard Sentiment Analysis often labels text as "Positive" or "Negative" without understanding the underlying commercial urgency. Through nearly two decades of system design, I've learned that a happy customer who praises your product but has no immediate need to re-purchase is what we call a "Satisfied Ghost." Conversely, an angry customer detailing a hardware failure represents a high-conversion sales opportunity. This article details our implementation of an **Applied NLP framework** that shifts the focus from emotional tone to transactional intent, bridging the gap between raw data engineering and strategic bottom lines.
 
 ---
 
@@ -41,12 +41,13 @@ def calculate_mercer_intent(text, analyzer):
     intent_signal = 0.6 if any(word in tokens for word in intent_keywords) else 0.0
     
     # Composite Weighting: 60% Intent, 40% Sentiment
+    # We penalize sentiment if it conflicts with physical intent
     raw_score = (intent_signal * 0.6) + (sentiment_score * 0.4)
     
     # The Mercer Rectification: 
     # If a negation is detected, the intent is likely flipped.
     if has_negation:
-        raw_score -= 0.7 # Heavy penalty for expressed disinterest
+        raw_score -= 0.7 # Heavy penalty for expressed disinterest or churn
         
     return max(0, raw_score)
 ```
@@ -99,7 +100,7 @@ When the Intent Engine identifies a "Frustrated Buyer" with a high **P(Alive)** 
 
 ## 5. Strategic Conclusion: CRM as a Ubiquitous Engine
 
-The customer doesn't start their journey on your landing page; they start it in the messy, unstructured reality of their daily lives. The future of CRM is not a static database; it is a **ubiquitous, probabilistic engine** that can hear the whisper of intent through the roar of sentiment.
+The customer doesn't start their journey on your landing page; they start it in the messy, unstructured reality of their daily lives. The future of CRM is not a static database of past events; it is a **ubiquitous, probabilistic engine** that can hear the whisper of intent through the roar of sentiment.
 
 By grounding our strategy in applied machine learning—combining NLP negation logic, BG/NBD frequency modeling, and Market Basket affinity—we move from a reactive posture to a proactive one. We don't just record the past. We calculate the future.
 
@@ -115,3 +116,5 @@ Access the complete Python source code and reproducible environment:
 
 ---
 *Clarence R. Mercer is a Data Strategy Analyst at Digital Crustacean Lab, specializing in high-fidelity CRM automation and the intersection of NLP and Business Intelligence.*
+
+**Cover Image Credit:** Created by Author using DALL-E 3.

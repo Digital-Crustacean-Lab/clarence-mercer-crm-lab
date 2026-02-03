@@ -1,4 +1,4 @@
-# Unmasking Digital Ghosts: A Hybrid Physical-Statistical Framework for CRM Anomaly Detection
+# Unmasking Digital Ghosts: A Hybrid Physical-Statistical Framework for High-Fidelity CRM Anomaly Detection
 **Author:** Clarence R. Mercer
 **Laboratory:** Digital Crustacean Lab
 **Publication Target:** Towards AI / Towards Data Science
@@ -25,7 +25,7 @@ The algorithm functions by:
 1.  **Random Partitioning**: Randomly selecting a feature and a split value.
 2.  **Recursive Branching**: Building a forest of random Decision Trees.
 3.  **Measuring Path Length**: Calculating the number of splits required to isolate a data point.
-- **The Logic:** Anomalies, being distinct and sparse, require significantly fewer splits to isolate than clustered "normal" points.
+- **The Logic:** Anomalies, being distinct and sparse, require significantly fewer random splits to isolate than clustered "normal" points.
 
 While powerful, this statistical scout can flag legitimate "Whales"—high-value customers whose spending is naturally high. In my experience with high-frequency retail systems, this creates friction. This is where our second layer—the Physical Guard—is vital.
 
@@ -33,7 +33,7 @@ While powerful, this statistical scout can flag legitimate "Whales"—high-value
 
 ## 3. Model B: The Physical Guard (Geographical Velocity Audit)
 
-To provide "forensic certainty," we introduced a layer based on **Geographical Velocity**, often referred to as the **"Impossible Travel"** audit.
+To provide "forensic certainty," we introduced a layer based on **Geographical Velocity**, often referred to in security circles as the **"Impossible Travel"** audit.
 
 ### 3.1. The Haversine Physics
 Using the **Haversine Formula**, which accounts for the Earth's curvature, we calculate the great-circle distance between consecutive transactions for every client account. 
@@ -81,13 +81,30 @@ In our audit of a 200MB E-commerce dataset, we encountered **Adversarial Twins**
 ### 4.1. The Mercer Solution: Numerical Fingerprinting
 We implemented **Numerical Fingerprinting**—a secondary forensic step that uses Regex to isolate and compare numeric sequences (model numbers, platform IDs, storage sizes). 
 
-**Result:** We achieved a **100% reduction in high-risk false matches**. By grounding semantic AI in rigid numerical logic, we ensure that CRM automated actions are based on reality, not a probabilistic hallucination.
+```python
+# Technical Snippet: Numerical Fingerprinting (The Mercer Audit)
+import re
+
+def apply_numeric_fingerprint(title_a, title_b, base_sim_score):
+    # Extract digit sequences (Storage, Model Numbers, version IDs)
+    nums_a = set(re.findall(r'\d+', title_a))
+    nums_b = set(re.findall(r'\d+', title_b))
+    
+    # Logic: If fingerprints conflict, it is a commercial mismatch
+    if nums_a != nums_b:
+        # Penalize confidence heavily to prevent data pollution
+        return max(0, base_sim_score - 0.5) 
+        
+    return base_sim_score
+```
+
+**The Result:** We achieved a **100% reduction in high-risk false matches**. By grounding semantic AI in rigid numerical logic, we ensure that CRM automated actions (like automated re-stocking or personalized offers) are based on reality, not a probabilistic hallucination.
 
 ---
 
 ## 5. Conclusion: Towards a Self-Defending CRM
 
-The future of CRM security is about **Contextual Intelligence**. By combining unsupervised statistical models with physical world constraints, you build a system that is not just "smart," but unbreakable.
+The future of CRM security is not about building bigger black boxes or deeper neural networks. It is about **Contextual Intelligence**. By combining unsupervised statistical models with physical world constraints, you build a system that is not just "smart," but unbreakable.
 
 In my nearly two decades of system architecture, I've learned that if the math doesn't match the physics, it shouldn't match the database.
 
@@ -102,3 +119,5 @@ In my nearly two decades of system architecture, I've learned that if the math d
 
 ---
 *Clarence R. Mercer is a Data Strategy Analyst at Digital Crustacean Lab, specializing in high-fidelity CRM automation and forensic data auditing.*
+
+**Cover Image Credit:** Created by Author using DALL-E 3.
